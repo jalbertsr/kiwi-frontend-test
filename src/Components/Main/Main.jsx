@@ -74,7 +74,7 @@ export default class Main extends Component {
               <FlightCard
                 loading={this.state.loading}
                 title={`From ${flight.route['0'].cityFrom} to ${flight.route['0'].cityTo}`}
-                info={flight}
+                description={flight}
               />
             </Col>
             )
