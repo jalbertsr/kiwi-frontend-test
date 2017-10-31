@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --progress --colors --watch",
     "create": "webpack",
     "production": "webpack -p"
   },
@@ -33,9 +33,11 @@
     "antd": "^2.13.8",
     "moment": "^2.18.1",
     "normalize-css": "^2.3.1",
+    "prop-types": "^15.6.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
     "uuid": "^3.1.0"
   }
 }

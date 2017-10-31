@@ -1,21 +1,12 @@
 import React from 'react'
-import './App.scss'
+import { Switch, Route } from 'react-router-dom'
 import './App.less'
-import { Calendar } from 'antd'
+import Main from '../Main/Main'
 
-const App = () => {
-  function onPanelChange (value, mode) {
-    console.log(value, mode)
-  }
-
-  return (
-    <div>
-      <h1>Hola!</h1>
-      <div style={{ width: 290, border: '1px solid #d9d9d9', borderRadius: 4 }}>
-        <Calendar fullscreen={false} onPanelChange={onPanelChange} />
-      </div>
-    </div>
-  )
-}
-
+const App = () => (
+  <Switch>
+    <Route exact path='/' component={Main} />
+    { /* <Route component={NotFound} /> */}
+  </Switch>
+)
 export default App
