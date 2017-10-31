@@ -29,7 +29,7 @@ export default class Main extends Component {
     return (
       <div className={styles.searchForm}>
         <Row>
-          <Col span={12} offset={4}>
+          <Col span={10} offset={4}>
             <p className={styles.searchTitle}>From:</p>
             <SearchBar
               use={'from'}
@@ -42,13 +42,14 @@ export default class Main extends Component {
               onChange={this.handleChange}
               placeholder={'Barcelona'}
             />
-            <Calendar className={styles.datePicker}/>
+            <p className={styles.searchTitle}>Dates:</p>
+            <Calendar className={styles.datePicker} />
           </Col>
           <Col span={6}>
             <fieldset>
               <p>My Ticket</p>
                 From: {this.state.from} <br />
-                Email: {this.state.to} <br />
+                To: {this.state.to} <br />
                 Arraival: {this.state.arraival} <br />
                 Departure: {this.state.departure}
             </fieldset>
