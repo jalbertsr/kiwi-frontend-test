@@ -14,10 +14,10 @@ export default class Calendar extends Component {
     this.handleRange = this.handleRange.bind(this)
   }
   handleRange (e) {
+    // handlear error value _d
     const departure = moment(e[0]._d).format('DD/MM/YYYY')
     const returning = moment(e[1]._d).format('DD/MM/YYYY')
-    console.log('arraival', departure)
-    console.log('departure', returning)
+    this.props.getDates(departure, returning)
   }
 
   render () {
@@ -27,4 +27,6 @@ export default class Calendar extends Component {
   }
 }
 
-Calendar.propTypes = {}
+Calendar.propTypes = {
+  getDates: PropTypes.func.isRequired
+}

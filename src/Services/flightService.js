@@ -2,7 +2,7 @@ import axios from 'axios'
 const baseUrl = 'https://api.skypicker.com'
 
 export default {
-  getFlights: function (from, to, dateTo, dateFrom) {
+  getFlights: function (from, to, dateFrom, dateTo) {
     const url = `${baseUrl}/flights?v=2&locale=en&flyFrom=${from}&to=${to}&dateFrom=${dateFrom}&dateTo=${dateTo}`
     console.log(url)
     return axios.get(url)

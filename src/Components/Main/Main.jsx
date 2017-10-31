@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import SearchBar from '../SearchBar/SearchBar'
-import Calendar from '../Calendar/RangePicker'
-import styles from './Main.css'
-import { Row, Col } from 'antd'
+import { Row, Col, Pagination } from 'antd'
+import uuidv4 from 'uuid/v4'
+import moment from 'moment'
+import Service from '../../Services/flightService'
+import FlightCard from '../FlightCard/FlightCard'
+import SearchForm from '../SearchForm/SearchForm'
 
 export default class Main extends Component {
   constructor () {
@@ -11,50 +13,74 @@ export default class Main extends Component {
       from: '',
       to: '',
       departure: '',
-      arraival: ''
+      returning: '',
+      loading: true,
+      results: []
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.handleDates = this.handleDates.bind(this)
   }
 
-  handleSubmit () {
+  handleSubmit (e) {
+    e.preventDefault()
+    this.setState({ loading: true })
     console.log(`search parameters: ${JSON.stringify(this.state)}`)
+    const _from = this.state.from.split('(')[0].trim()
+    const to = this.state.to.split('(')[0].trim()
+    Service.getFlights(_from, to, this.state.departure, this.state.returning)
+          .then(info => {
+            console.log('flyy', info)
+            this.setState({
+              loading: false,
+              results: info.data
+            })
+          })
+  }
+
+  handleDates (departure, returning) {
+    this.setState({departure, returning})
   }
 
   handleChange (value) {
     this.setState(value)
   }
 
+  // default search
+  componentDidMount () {
+    const today = moment().format('DD/MM/YYYY')
+    const nextFiveDays = moment().add(5, 'days').format('DD/MM/YYYY')
+    Service.getFlights('Barcelona', 'Brno', today, nextFiveDays)
+    .then(info => {
+      console.log('flyy didmount', info)
+      this.setState({
+        loading: false,
+        results: info.data
+      })
+    })
+  }
+
   render () {
     return (
-      <div className={styles.searchForm}>
+      <div>
+        <SearchForm
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          handleDates={this.handleDates}
+        />
         <Row>
-          <Col span={10} offset={4}>
-            <p className={styles.searchTitle}>From:</p>
-            <SearchBar
-              use={'from'}
-              onChange={this.handleChange}
-              placeholder={'Brno'}
-            />
-            <p className={styles.searchTitle}>To:</p>
-            <SearchBar
-              use={'to'}
-              onChange={this.handleChange}
-              placeholder={'Barcelona'}
-            />
-            <p className={styles.searchTitle}>Dates:</p>
-            <Calendar className={styles.datePicker} />
-          </Col>
-          <Col span={6}>
-            <fieldset>
-              <p>My Ticket</p>
-                From: {this.state.from} <br />
-                To: {this.state.to} <br />
-                Arraival: {this.state.arraival} <br />
-                Departure: {this.state.departure}
-            </fieldset>
-          </Col>
+          {this.state.results.map(flight => (
+            <Col span={6} key={uuidv4()}>
+              <FlightCard
+                loading={this.state.loading}
+                title={`From ${flight.route['0'].cityFrom} to ${flight.route['0'].cityTo}`}
+                info={flight}
+              />
+            </Col>
+            )
+          )}
         </Row>
+        <Pagination defaultCurrent={1} total={50} />
       </div>
     )
   }
