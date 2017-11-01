@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import { Card, Icon, Row, Col } from 'antd'
 
 const FlightCard = ({ loading, title, description, departure, returning }) => {
-  console.log(description)
   return (
     <Link to={`/flight/flyFrom=${description.flyFrom}&flyTo=${description.flyTo}&departure=${departure.replace('/', '-').replace('/', '-')}&returning=${returning.replace('/', '-').replace('/', '-')}`}>
       <Card loading={loading} title={title} className={styles.spaceBetween}>

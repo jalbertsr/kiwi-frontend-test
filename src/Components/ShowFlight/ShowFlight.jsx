@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
+
 import Service from '../../Services/flightService'
 import FlightMap from '../Map/Map'
 import styles from './ShowFlight.css'
@@ -11,7 +12,7 @@ export default class ShowFlight extends Component {
       result: {}
     }
 
-    console.log(this.props.match.params.query)
+    // console.log(this.props.match.params.query)
   }
 
   componentDidMount () {

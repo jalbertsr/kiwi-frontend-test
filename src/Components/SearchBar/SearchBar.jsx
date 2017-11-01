@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { AutoComplete } from 'antd'
-import Service from '../../Services/flightService'  
+
+import Service from '../../Services/flightService'
 import styles from './SearchBar.css'
 
 export default class SearchBar extends Component {
@@ -36,5 +37,7 @@ export default class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  use: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired
 }
