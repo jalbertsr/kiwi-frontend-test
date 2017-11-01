@@ -4,6 +4,7 @@
 
 .searchForm {
   margin-top: 6%; 
+  margin-bottom: 2%;
 }
 
 .searchTitle {
@@ -12,4 +13,10 @@
 
 .datePicker {
   margin-top: 2%;
+}
+
+.buttonSearch {
+  position: absolute;
+  right: 0;
+  width: 30%
 }

@@ -14,10 +14,8 @@ export default class SearchBar extends Component {
   }
 
   handleChange (value) {
-    console.log(value)
     Service.getPlaces(value)
           .then(data => {
-            console.log(data)
             this.setState({
               dataSource: data.map(places => places.value)
             })
