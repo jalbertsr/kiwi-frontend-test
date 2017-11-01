@@ -10,7 +10,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --watch",
     "create": "webpack",
-    "production": "webpack -p",
+    "build": "webpack -p",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -21,6 +21,11 @@
     "babel-preset-latest": "6.16.0",
     "babel-preset-react": "6.16.0",
     "css-loader": "^0.28.7",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.3",
