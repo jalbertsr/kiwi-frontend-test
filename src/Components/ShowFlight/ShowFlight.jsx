@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
+import PropTypes from 'prop-types'
 
 import Service from '../../Services/flightService'
 import FlightMap from '../Map/Map'
@@ -74,4 +75,12 @@ export default class ShowFlight extends Component {
       </div>
     )
   }
+}
+
+ShowFlight.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      query: React.PropTypes.string.isRequired
+    })
+  })
 }

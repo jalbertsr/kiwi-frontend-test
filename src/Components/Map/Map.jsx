@@ -1,5 +1,7 @@
 /* global google */
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import {
   withScriptjs,
   withGoogleMap,
@@ -46,3 +48,10 @@ const MapWithADirectionsRenderer = compose(
 )
 
 export default MapWithADirectionsRenderer
+
+MapWithADirectionsRenderer.propTypes = {
+  latFrom: PropTypes.string.isRequired,
+  lngFrom: PropTypes.string.isRequired,
+  latTo: PropTypes.string.isRequired,
+  lngTo: PropTypes.string.isRequired
+}
