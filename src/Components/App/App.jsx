@@ -3,12 +3,16 @@ import { Switch, Route } from 'react-router-dom'
 import './App.less'
 import Main from '../Main/Main'
 import ShowFlight from '../ShowFlight/ShowFlight'
+import Navbar from '../Navbar/Navbar'
 
 const App = () => (
-  <Switch>
-    <Route exact path='/' component={Main} />
-    <Route path='/flight/:query' component={ShowFlight} />
-    { /* <Route component={NotFound} /> */}
-  </Switch>
+  <div>
+    <Navbar />
+    <Switch>
+      <Route exact path='/' component={Main} />
+      <Route path='/flight/:query' component={ShowFlight} />
+      { /* <Route component={NotFound} /> */}
+    </Switch>
+  </div>
 )
 export default App

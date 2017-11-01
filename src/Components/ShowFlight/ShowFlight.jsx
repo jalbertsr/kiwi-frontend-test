@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col } from 'antd'
 import Service from '../../Services/flightService'
 import FlightMap from '../Map/Map'
+import styles from './ShowFlight.css'
 
 export default class ShowFlight extends Component {
   constructor (props) {
@@ -28,35 +29,48 @@ export default class ShowFlight extends Component {
     }
   }
   render () {
+    const result = this.state.result
     return (
-      <Row>
-        <Col span={8} offset={1}>
-          <p>hola</p>
-          { this.state.result.route && <FlightMap
-            latFrom={this.state.result.route['0'].latFrom}
-            latTo={this.state.result.route['0'].latTo}
-            lngFrom={this.state.result.route['0'].lngFrom}
-            lngTo={this.state.result.route['0'].lngTo}
-            />
-          }
-        </Col>
-        <Col span={12} offset={1}>
-          <h1>{this.state.name}</h1>
-          <hr />
-          <strong> Description: </strong>
-          <p>{this.state.description}</p>
-          <hr />
-          <div className='genere'>
-            <span className='genereTitle'>
-              <strong>Generes: </strong>
-            </span>
-          </div>
-          <hr />
-          <div className='trailer'>
-            <strong> Trailer: </strong>
-          </div>
-        </Col>
-      </Row>
+      <div className={styles.flightContainer}>
+        <Row>
+          <Col span={8} offset={1}>
+            { result.route && <FlightMap
+              latFrom={result.route['0'].latFrom}
+              latTo={result.route['0'].latTo}
+              lngFrom={result.route['0'].lngFrom}
+              lngTo={result.route['0'].lngTo}
+              />
+            }
+          </Col>
+          <Col span={12} offset={1}>
+            { result.route &&
+              <div>
+                <h1>Fly for {result.price} EUR</h1>
+                <hr />
+                <strong> Flight Description: </strong>
+                <p>From: {result.cityFrom}</p>
+                <p>To: {result.cityTo}</p>
+                <p>Flight duration: {result.fly_duration} </p>
+                <p>Flight ID: {result.id} </p>
+                <hr />
+                <div >
+                  <span>
+                    <strong>Flight Description: </strong>
+                    <p> Bags price:</p>
+                    <ul>
+                      {Object.keys(result.bags_price).map((bag, i) =>
+                        <li key={i}>{`${i + 1} Bag${(i + 1) <= 1 ? '' : 's'} → ${result.bags_price[i + 1]} EUR`} </li>) }
+                    </ul>
+                    <p> Fly Distance: </p>
+                    {`${result.distance} Km`}
+                  </span>
+                </div>
+                <hr />
+              </div>
+            }
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
