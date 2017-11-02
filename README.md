@@ -17,7 +17,7 @@ yarn install or npm install
 
 #### Run dev server
 ```
-yarn dev or npm run dev
+yarn start or npm start
 ```
 
 ##### Local server is launched at http://localhost:3000, you can modify it in webpack config
