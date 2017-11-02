@@ -1,5 +1,7 @@
-# kiwi-frontend-test
+# [kiwi-frontend-test]()
 
+
+You can see the result 👉 [here]()
 
 ### In order to work locally:
 
@@ -35,3 +37,19 @@ yarn test:coverage or npm run test:coverage
 ```
 yarn build or npm run build
 ```
+
+#### Main dependencies used for the project
+
+- babel
+- css-modules
+- less
+- webpack
+- webpack-dev-server
+- antd
+- axios
+- moment
+- prop-types
+- chai
+- jest
+- eslint
+- uuidv4
