@@ -1,56 +1,62 @@
 /* global google */
-import React from 'react'
+
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { GoogleApiWrapper } from 'google-maps-react'
+import { Marker } from 'react-google-maps'
 
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  DirectionsRenderer
-} from 'react-google-maps'
-
-const { compose, withProps, lifecycle } = require('recompose')
-
-const MapWithADirectionsRenderer = compose(
-  withProps({
-    googleMapURL: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places',
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />
-  }),
-  withScriptjs,
-  withGoogleMap,
-  lifecycle({
-    componentDidMount () {
-      const DirectionsService = new google.maps.DirectionsService()
-      DirectionsService.route({
-        origin: new google.maps.LatLng(this.props.latFrom, this.props.lngFrom),
-        destination: new google.maps.LatLng(this.props.latTo, this.props.lngTo),
-        travelMode: google.maps.TravelMode.DRIVING
-      }, (result, status) => {
-        if (status === google.maps.DirectionsStatus.OK) {
-          this.setState({
-            directions: result
-          })
-        } else {
-          console.error(`error fetching directions ${JSON.stringify(result)}`)
-        }
-      })
+class FlightMap extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      loaded: false
     }
-  })
-)(props =>
-  <GoogleMap
-    defaultZoom={7}
-  >
-    {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>
-)
+  }
 
-export default MapWithADirectionsRenderer
+  calulateCenter = () => {
+    const lat = (this.props.latFrom + this.props.latTo) / 2
+    const lng = (this.props.lngFrom + this.props.lngTo) / 2
+    return { lat, lng }
+  }
 
-MapWithADirectionsRenderer.propTypes = {
-  latFrom: PropTypes.string.isRequired,
-  lngFrom: PropTypes.string.isRequired,
-  latTo: PropTypes.string.isRequired,
-  lngTo: PropTypes.string.isRequired
+  renderFlights = () => {
+    const google = window.google
+    const flightPlanCoordinates = [
+      { lat: this.props.latFrom, lng: this.props.lngFrom },
+      { lat: this.props.latTo, lng: this.props.lngTo }
+    ]
+    const flightPath = new google.maps.Polyline({
+      path: flightPlanCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000',
+      strokeOpacity: 1.0,
+      strokeWeight: 2
+    })
+
+    const map = new google.maps.Map(this.flightmap, { zoom: 4, center: this.calulateCenter() })
+
+    flightPath.setMap(map)
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.renderFlights()
+      this.setState({loaded: true})
+    }, 500)
+  }
+
+  render () {
+    return (
+      <div style={{ height: `400px`, width: `400px`}} ref={(flightmap) => { this.flightmap = flightmap }}></div>
+    )
+  }
+}
+
+export default FlightMap
+
+FlightMap.propTypes = {
+  latFrom: PropTypes.number.isRequired,
+  lngFrom: PropTypes.number.isRequired,
+  latTo: PropTypes.number.isRequired,
+  lngTo: PropTypes.number.isRequired
 }
