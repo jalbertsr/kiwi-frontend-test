@@ -1,9 +1,31 @@
-# [kiwi-frontend-test](http://kiwi-frontend-test.surge.sh/​)
+# [kiwi-frontend-test](http://kiwi-frontend-test.surge.sh)
 
 
-You can see the result 👉 [here](http://kiwi-frontend-test.surge.sh/​)
+You can see the result 👉 [here](http://kiwi-frontend-test.surge.sh)
 
-### In order to work locally:
+#### Main dependencies used for the project
+
+- babel
+- css-modules
+- less
+- webpack
+- webpack-dev-server
+- antd
+- axios
+- moment
+- prop-types
+- chai
+- jest
+- eslint
+- uuidv4
+
+#### API used 
+
+- google maps api
+- skypicker
+
+
+#### In order to work locally:
 
 ```
 Clone this repo or download it
@@ -37,19 +59,3 @@ yarn test:coverage or npm run test:coverage
 ```
 yarn build or npm run build
 ```
-
-#### Main dependencies used for the project
-
-- babel
-- css-modules
-- less
-- webpack
-- webpack-dev-server
-- antd
-- axios
-- moment
-- prop-types
-- chai
-- jest
-- eslint
-- uuidv4
