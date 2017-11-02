@@ -23,7 +23,6 @@ const MapWithADirectionsRenderer = compose(
   lifecycle({
     componentDidMount () {
       const DirectionsService = new google.maps.DirectionsService()
-      console.log('LAS PUTAS PROPS', this.props)
       DirectionsService.route({
         origin: new google.maps.LatLng(this.props.latFrom, this.props.lngFrom),
         destination: new google.maps.LatLng(this.props.latTo, this.props.lngTo),

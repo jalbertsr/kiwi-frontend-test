@@ -13,20 +13,19 @@ export default class ShowFlight extends Component {
       result: {}
     }
 
-    // console.log(this.props.match.params.query)
+    console.log(this.props.match.params.query)
   }
 
   componentDidMount () {
     if (this.props.match.params.query) {
-      const [flyFrom, flyTo, departure, returning] =
+      const [flyFrom, flyTo, departure, returning, index] =
       this.props.match.params.query.split('&').map(query => query.split('=')[1])
 
       Service.getFlights(flyFrom, flyTo, departure.replace('-', '/').replace('-', '/'), returning.replace('-', '/').replace('-', '/'))
         .then(data => {
           this.setState({
-            result: data.data.slice(0, 1)[0]
+            result: data.data[index]
           })
-          console.log(this.state)
         })
     }
   }

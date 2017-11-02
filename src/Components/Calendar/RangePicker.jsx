@@ -13,7 +13,6 @@ export default class Calendar extends Component {
     }
   }
   handleRange = (e) => {
-    // handlear error value _d
     const departure = moment(e[0]._d).format('DD/MM/YYYY')
     const returning = moment(e[1]._d).format('DD/MM/YYYY')
     this.props.getDates(departure, returning)

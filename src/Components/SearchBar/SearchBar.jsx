@@ -11,17 +11,17 @@ export default class SearchBar extends Component {
     this.state = {
       dataSource: []
     }
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange (value) {
-    Service.getPlaces(value)
+  handleChange = (value) => {
+    let searchValue = value.split('(')[0].trim()
+    Service.getPlaces(searchValue)
       .then(data => {
         this.setState({
           dataSource: data.map(places => places.value)
         })
       })
-    this.props.onChange({[this.props.use]: value})
+    this.props.onChange({ [this.props.use]: searchValue })
   }
 
   render () {

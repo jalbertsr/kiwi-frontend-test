@@ -5,9 +5,11 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Card, Icon, Row, Col } from 'antd'
 
-const FlightCard = ({ loading, title, description, departure, returning }) => {
+const FlightCard = ({ loading, title, description, departure, returning, index }) => {
+  const parsedDeparture = departure.replace('/', '-').replace('/', '-')
+  const parsedReturn = returning.replace('/', '-').replace('/', '-')
   return (
-    <Link to={`/flight/flyFrom=${description.flyFrom}&flyTo=${description.flyTo}&departure=${departure.replace('/', '-').replace('/', '-')}&returning=${returning.replace('/', '-').replace('/', '-')}`}>
+    <Link to={`/flight/flyFrom=${description.flyFrom}&flyTo=${description.flyTo}&departure=${parsedDeparture}&returning=${parsedReturn}&fly=${index}`}>
       <Card loading={loading} title={title} className={styles.spaceBetween}>
         <Row>
           <Col span={15}>
@@ -32,6 +34,7 @@ FlightCard.propTypes = {
   title: PropTypes.string.isRequired,
   departure: PropTypes.string.isRequired,
   returning: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
   description: PropTypes.shape({
     flyFrom: PropTypes.string.isRequired,
     flyTo: PropTypes.string.isRequired,
