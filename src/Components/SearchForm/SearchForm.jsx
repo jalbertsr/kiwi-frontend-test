@@ -31,6 +31,9 @@ const SearchForm = ({ handleSubmit, handleChange, handleDates }) => (
           Search
           </Button>
         </Col>
+        <Col offset={4} span={4}>
+          <img className={styles.logo} width='100%' src='https://s.productreview.com.au/products/images/b1fd66fc-1ded-492d-89ab-815912295ef3.png' />
+        </Col>
       </Row>
     </div>
   </Form>
