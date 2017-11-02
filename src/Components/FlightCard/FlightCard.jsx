@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import styles from './FlightCard.css'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Card, Icon, Row, Col } from 'antd'
 
@@ -25,3 +26,15 @@ const FlightCard = ({ loading, title, description, departure, returning }) => {
 }
 
 export default FlightCard
+
+FlightCard.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  departure: PropTypes.string.isRequired,
+  returning: PropTypes.string.isRequired,
+  description: PropTypes.shape({
+    flyFrom: PropTypes.string.isRequired,
+    flyTo: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired
+  })
+}

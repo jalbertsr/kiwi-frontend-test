@@ -11,9 +11,8 @@ export default class Calendar extends Component {
     this.state = {
       range: ''
     }
-    this.handleRange = this.handleRange.bind(this)
   }
-  handleRange (e) {
+  handleRange = (e) => {
     // handlear error value _d
     const departure = moment(e[0]._d).format('DD/MM/YYYY')
     const returning = moment(e[1]._d).format('DD/MM/YYYY')

@@ -23,14 +23,9 @@ export default class Main extends Component {
         final: 18
       }
     }
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.handleDates = this.handleDates.bind(this)
-    this.getResults = this.getResults.bind(this)
-    this.handleChangePage = this.handleChangePage.bind(this)
   }
 
-  handleSubmit (e) {
+  handleSubmit = (e) => {
     e.preventDefault()
     console.log(`search parameters: ${JSON.stringify(this.state)}`)
     const _from = this.state.from.split('(')[0].trim()
@@ -38,15 +33,15 @@ export default class Main extends Component {
     this.getResults(_from, to, this.state.departure, this.state.returning, {init: 0, final: 18})
   }
 
-  handleDates (departure, returning) {
+  handleDates = (departure, returning) => {
     this.setState({departure, returning})
   }
 
-  handleChange (value) {
+  handleChange = (value) => {
     this.setState(value)
   }
 
-  handleChangePage (page) {
+  handleChangePage = (page) => {
     console.log('change page', page)
     const init = this.state.slice.init + 18
     const final = this.state.slice.final + 18
@@ -56,16 +51,16 @@ export default class Main extends Component {
     this.getResults(_from, to, this.state.departure, this.state.returning, this.state.slice)
   }
 
-  getResults (_from, to, departure, returning, slice) {
+  getResults = (_from, to, departure, returning, slice) => {
     this.setState({ loading: true })
     Service.getFlights(_from, to, departure, returning)
-    .then(info => {
-      console.log(info.data.slice(slice.init, slice.final))
-      this.setState({
-        loading: false,
-        results: info.data.slice(slice.init, slice.final)
+      .then(info => {
+        console.log(info.data.slice(slice.init, slice.final))
+        this.setState({
+          loading: false,
+          results: info.data.slice(slice.init, slice.final)
+        })
       })
-    })
   }
 
   // default search
@@ -92,7 +87,7 @@ export default class Main extends Component {
           </Col>
         </Row>
         <Row gutter={16}>
-          {this.state.results.map(flight => (
+          {this.state.results.map(flight =>
             <Col offset={2} span={5} key={uuidv4()}>
               <FlightCard
                 loading={this.state.loading}
@@ -102,7 +97,6 @@ export default class Main extends Component {
                 returning={this.state.returning}
               />
             </Col>
-            )
           )}
         </Row>
       </div>

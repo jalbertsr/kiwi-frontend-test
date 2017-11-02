@@ -41,7 +41,7 @@ export default class ShowFlight extends Component {
               latTo={result.route['0'].latTo}
               lngFrom={result.route['0'].lngFrom}
               lngTo={result.route['0'].lngTo}
-              />
+            />
             }
           </Col>
           <Col span={12} offset={1}>
@@ -80,7 +80,7 @@ export default class ShowFlight extends Component {
 ShowFlight.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      query: React.PropTypes.string.isRequired
+      query: PropTypes.string.isRequired
     })
   })
 }

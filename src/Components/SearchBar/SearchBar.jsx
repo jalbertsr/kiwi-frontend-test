@@ -16,11 +16,11 @@ export default class SearchBar extends Component {
 
   handleChange (value) {
     Service.getPlaces(value)
-          .then(data => {
-            this.setState({
-              dataSource: data.map(places => places.value)
-            })
-          })
+      .then(data => {
+        this.setState({
+          dataSource: data.map(places => places.value)
+        })
+      })
     this.props.onChange({[this.props.use]: value})
   }
 

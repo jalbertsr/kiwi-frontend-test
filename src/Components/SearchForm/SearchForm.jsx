@@ -1,11 +1,11 @@
 import React from 'React'
+import PropTypes from 'prop-types'
 import { Row, Col, Form, Button } from 'antd'
-
 import SearchBar from '../SearchBar/SearchBar'
 import Calendar from '../Calendar/RangePicker'
 import styles from './SearchForm.css'
 
-const SearchForm = ({ handleSubmit, handleChange, handleDates }) => (
+const SearchForm = ({ handleSubmit, handleChange, handleDates }) =>
   <Form onSubmit={handleSubmit}>
     <div className={styles.searchForm}>
       <Row>
@@ -37,6 +37,11 @@ const SearchForm = ({ handleSubmit, handleChange, handleDates }) => (
       </Row>
     </div>
   </Form>
-)
 
 export default SearchForm
+
+SearchForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleDates: PropTypes.func.isRequired
+}
