@@ -43,6 +43,5 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({ template: './src/assets/index.html' }),
     new ExtractTextPlugin('style.css', { allChunks: true })
-  ],
-  watch: true
+  ]
 }

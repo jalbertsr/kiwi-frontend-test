@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "start": "webpack-dev-server --progress --colors --watch",
-    "create": "webpack",
+    "create": "webpack --config webpack.config.js",
     "build": "webpack -p",
     "test": "jest",
     "test:coverage": "jest --coverage",
