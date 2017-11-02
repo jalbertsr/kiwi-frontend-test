@@ -1,16 +1,9 @@
-/* global google */
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { GoogleApiWrapper } from 'google-maps-react'
-import { Marker } from 'react-google-maps'
 
 class FlightMap extends Component {
   constructor (props) {
     super(props)
-    this.state = {
-      loaded: false
-    }
   }
 
   calulateCenter = () => {
@@ -33,16 +26,13 @@ class FlightMap extends Component {
       strokeWeight: 2
     })
 
-    const map = new google.maps.Map(this.flightmap, { zoom: 4, center: this.calulateCenter() })
+    const map = new google.maps.Map(this.flightmap, { zoom: 3, center: this.calulateCenter() })
 
     flightPath.setMap(map)
   }
 
   componentDidMount() {
-    setTimeout(() => {
-      this.renderFlights()
-      this.setState({loaded: true})
-    }, 500)
+    this.renderFlights()
   }
 
   render () {

@@ -12,14 +12,16 @@ const FlightCard = ({ loading, title, description, departure, returning, index }
     <Link to={`/flight/flyFrom=${description.flyFrom}&flyTo=${description.flyTo}&departure=${parsedDeparture}&returning=${parsedReturn}&fly=${index}`}>
       <Card loading={loading} title={title} className={styles.spaceBetween}>
         <Row>
-          <Col span={15}>
+          <Col xs={8} sm={12} md={16}>
             <h4> <Icon type='rocket' /> {description.flyFrom} to {description.flyTo}</h4>
             <h4> <Icon type='calendar' /> Departure: {moment(departure, 'DD/MM/YYYY').format('MMM Do YY')} </h4>
             <h4> <Icon type='calendar' /> Returning: {moment(returning, 'DD/MM/YYYY').format('MMM Do YY')} </h4>
           </Col>
-          <Col offset={4} span={5}>
-            <h3>Price:</h3>
-            <h4>{description.price} €</h4>
+          <Col offset={3} xs={4} md={5}>
+            <div className={styles.priceTitle}>
+              <h3>Price:</h3>
+              <h4>{description.price} €</h4>
+            </div>
           </Col>
         </Row>
       </Card>

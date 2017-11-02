@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Row, Col, Pagination } from 'antd'
 import uuidv4 from 'uuid/v4'
 import moment from 'moment'
+
 import styles from './Main.css'
 import Service from '../../Services/flightService'
 import FlightCard from '../FlightCard/FlightCard'
@@ -84,7 +85,7 @@ export default class Main extends Component {
           handleDates={this.handleDates}
         />
         <Row>
-          <Col className={styles.spacePagination} span={19} offset={2}>
+          <Col className={styles.spacePagination} sm={19} offset={2}>
             <Pagination
               onChange={this.handleChangePage}
               className={styles.pagination}
@@ -92,12 +93,12 @@ export default class Main extends Component {
               defaultCurrent={1}
               total={this.state.resultsLength}
             />
-            <h3>Search Results:</h3>
+            <h3>Total Results: {this.state.resultsLength}</h3>
           </Col>
         </Row>
-        <Row gutter={16}>
+        <Row gutter={14}>
           {this.state.results.map((flight, i) =>
-            <Col offset={2} span={5} key={uuidv4()}>
+            <Col offset={2} sm={8} md={5} key={uuidv4()}>
               <FlightCard
                 loading={this.state.loading}
                 title={`From ${flight.cityFrom} to ${flight.cityTo}`}

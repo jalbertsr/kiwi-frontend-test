@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
 import PropTypes from 'prop-types'
+import uuidv4 from 'uuid/v4'
 
 import Service from '../../Services/flightService'
 import FlightMap from '../Map/Map'
@@ -35,7 +36,7 @@ export default class ShowFlight extends Component {
     return (
       <div className={styles.flightContainer}>
         <Row>
-          <Col span={8} offset={1}>
+          <Col xs={18} md={8} offset={1}>
             { result.route && <FlightMap
               latFrom={result.route['0'].latFrom}
               latTo={result.route['0'].latTo}
@@ -44,7 +45,7 @@ export default class ShowFlight extends Component {
             />
             }
           </Col>
-          <Col span={12} offset={1}>
+          <Col xs={18} md={12} offset={1}>
             { result.route &&
               <div>
                 <h1>Fly for {result.price} EUR</h1>
@@ -57,11 +58,11 @@ export default class ShowFlight extends Component {
                 <hr />
                 <div >
                   <span>
-                    <strong>Flight Description: </strong>
+                    <strong>Flight Details: </strong>
                     <p> Bags price:</p>
                     <ul>
                       {Object.keys(result.bags_price).map((bag, i) =>
-                        <li key={i}>{`${i + 1} Bag${(i + 1) <= 1 ? '' : 's'} → ${result.bags_price[i + 1]} EUR`} </li>) }
+                        <li key={uuidv4()}>{`${i + 1} Bag${(i + 1) <= 1 ? '' : 's'} → ${result.bags_price[i + 1]} EUR`} </li>) }
                     </ul>
                     <p> Fly Distance: </p>
                     {`${result.distance} Km`}

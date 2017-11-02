@@ -19,9 +19,7 @@ export default class Calendar extends Component {
   }
 
   render () {
-    return (
-      <RangePicker onChange={this.handleRange} />
-    )
+    return <RangePicker onChange={this.handleRange} />
   }
 }
 
