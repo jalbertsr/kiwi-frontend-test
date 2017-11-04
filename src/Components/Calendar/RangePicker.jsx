@@ -6,8 +6,8 @@ import { DatePicker } from 'antd'
 const { RangePicker } = DatePicker
 
 export default class Calendar extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       range: ''
     }

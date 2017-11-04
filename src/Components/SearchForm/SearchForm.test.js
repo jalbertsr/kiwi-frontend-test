@@ -13,7 +13,6 @@ describe('Searchform', () => {
     handleDates: jestMock
   }
   beforeEach(() => {
-
     newSearchform = new Searchform(props)
   })
   afterEach(() => {

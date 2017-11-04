@@ -6,7 +6,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.css']
   },
-  entry: './src/index.jsx',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
@@ -33,7 +33,8 @@ module.exports = {
         }, {
           loader: 'less-loader' // compiles Less to CSS
         }]
-      }
+      },
+      { test: /\.(jpe?g|png|gif|ico)$/i, loader: 'file?name=[name].[ext]' }
     ]
   },
   devServer: {
@@ -41,7 +42,9 @@ module.exports = {
     port: 3000
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: './src/assets/index.html' }),
+    new HtmlWebpackPlugin({
+      template: './src/assets/index.html',
+      favicon: './src/assets/favicon.ico' }),
     new ExtractTextPlugin('style.css', { allChunks: true })
   ]
 }

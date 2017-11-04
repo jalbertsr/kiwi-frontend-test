@@ -1,5 +1,5 @@
 import FlightCard from './FlightCard'
-import chai, { expect, assert } from 'chai'
+import chai, { expect } from 'chai'
 import spies from 'chai-spies'
 
 chai.use(spies)
