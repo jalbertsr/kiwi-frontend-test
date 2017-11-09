@@ -1,8 +1,5 @@
 import ShowFlight from './ShowFlight'
 import chai, { expect, assert } from 'chai'
-import spies from 'chai-spies'
-
-chai.use(spies)
 
 describe('ShowFlight', () => {
   let newShowFlight

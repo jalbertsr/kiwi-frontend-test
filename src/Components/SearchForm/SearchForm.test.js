@@ -1,8 +1,5 @@
 import Searchform from './SearchForm'
 import chai, { expect } from 'chai'
-import spies from 'chai-spies'
-
-chai.use(spies)
 
 describe('Searchform', () => {
   let newSearchform

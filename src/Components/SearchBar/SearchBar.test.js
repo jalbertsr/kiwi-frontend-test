@@ -1,8 +1,5 @@
 import SearchBar from './SearchBar'
 import chai, { expect, assert } from 'chai'
-import spies from 'chai-spies'
-
-chai.use(spies)
 
 describe('SearchBar', () => {
   let newSearchBar

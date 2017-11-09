@@ -31,7 +31,6 @@ class FlightMap extends Component {
   }
 
   renderFlight = () => {
-    const google = window.google
     const flightPlanCoordinates = [
       { lat: this.props.latFrom, lng: this.props.lngFrom },
       { lat: this.props.latTo, lng: this.props.lngTo }

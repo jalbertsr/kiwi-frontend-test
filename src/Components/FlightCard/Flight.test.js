@@ -1,8 +1,5 @@
 import FlightCard from './FlightCard'
 import chai, { expect } from 'chai'
-import spies from 'chai-spies'
-
-chai.use(spies)
 
 describe('FlightCard', () => {
   let newFlightCard
