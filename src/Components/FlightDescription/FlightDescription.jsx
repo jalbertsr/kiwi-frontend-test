@@ -19,7 +19,7 @@ const FlightDescription = ({ price, cityFrom, cityTo, fly_duration, id, bags_pri
         <p> Bags price:</p>
         <ul>
           {Object.keys(bags_price).map((bag, i) =>
-            <li key={uuidv4()}>{`${i + 1} Bag${(i + 1) <= 1 ? '' : 's'} → ${bags_price[i + 1]} EUR`} </li>)}
+            <li key={i}>{`${i + 1} Bag${(i + 1) <= 1 ? '' : 's'} → ${bags_price[i + 1]} EUR`} </li>)}
         </ul>
         <p> Fly Distance: </p>
         {`${distance} Km`}

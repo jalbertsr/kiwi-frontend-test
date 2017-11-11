@@ -1,0 +1,801 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlightDescription renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <FlightDescription
+    bags_price={
+      Array [
+        23,
+        45,
+        68,
+      ]
+    }
+    cityFrom="Barcelona"
+    cityTo="Brno"
+    distance={3345}
+    fly_duration="3h"
+    id="4322jnj2|dwefwer423"
+    price={40}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Fly for 
+          40
+           EUR
+        </h1>,
+        <hr />,
+        <strong>
+           Flight Description: 
+        </strong>,
+        <p>
+          From: 
+          Barcelona
+        </p>,
+        <p>
+          To: 
+          Brno
+        </p>,
+        <p>
+          Flight duration: 
+          3h
+           
+        </p>,
+        <p>
+          Flight ID: 
+          4322jnj2|dwefwer423
+           
+        </p>,
+        <hr />,
+        <div>
+          <span>
+            <strong>
+              Flight Details: 
+            </strong>
+            <p>
+               Bags price:
+            </p>
+            <ul>
+              <li>
+                1 Bag → 45 EUR
+                 
+              </li>
+              <li>
+                2 Bags → 68 EUR
+                 
+              </li>
+              <li>
+                3 Bags → undefined EUR
+                 
+              </li>
+            </ul>
+            <p>
+               Fly Distance: 
+            </p>
+            3345 Km
+          </span>
+        </div>,
+        <hr />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Fly for ",
+            40,
+            " EUR",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Fly for ",
+          40,
+          " EUR",
+        ],
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "hr",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": " Flight Description: ",
+        },
+        "ref": null,
+        "rendered": " Flight Description: ",
+        "type": "strong",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "From: ",
+            "Barcelona",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "From: ",
+          "Barcelona",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "To: ",
+            "Brno",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "To: ",
+          "Brno",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Flight duration: ",
+            "3h",
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Flight duration: ",
+          "3h",
+          " ",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Flight ID: ",
+            "4322jnj2|dwefwer423",
+            " ",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Flight ID: ",
+          "4322jnj2|dwefwer423",
+          " ",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "hr",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <span>
+            <strong>
+              Flight Details: 
+            </strong>
+            <p>
+               Bags price:
+            </p>
+            <ul>
+              <li>
+                1 Bag → 45 EUR
+                 
+              </li>
+              <li>
+                2 Bags → 68 EUR
+                 
+              </li>
+              <li>
+                3 Bags → undefined EUR
+                 
+              </li>
+            </ul>
+            <p>
+               Fly Distance: 
+            </p>
+            3345 Km
+          </span>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <strong>
+                Flight Details: 
+              </strong>,
+              <p>
+                 Bags price:
+              </p>,
+              <ul>
+                <li>
+                  1 Bag → 45 EUR
+                   
+                </li>
+                <li>
+                  2 Bags → 68 EUR
+                   
+                </li>
+                <li>
+                  3 Bags → undefined EUR
+                   
+                </li>
+              </ul>,
+              <p>
+                 Fly Distance: 
+              </p>,
+              "3345 Km",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Flight Details: ",
+              },
+              "ref": null,
+              "rendered": "Flight Details: ",
+              "type": "strong",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Bags price:",
+              },
+              "ref": null,
+              "rendered": " Bags price:",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <li>
+                    1 Bag → 45 EUR
+                     
+                  </li>,
+                  <li>
+                    2 Bags → 68 EUR
+                     
+                  </li>,
+                  <li>
+                    3 Bags → undefined EUR
+                     
+                  </li>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "1 Bag → 45 EUR",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "1 Bag → 45 EUR",
+                    " ",
+                  ],
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": "1",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "2 Bags → 68 EUR",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "2 Bags → 68 EUR",
+                    " ",
+                  ],
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": "2",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "3 Bags → undefined EUR",
+                      " ",
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "3 Bags → undefined EUR",
+                    " ",
+                  ],
+                  "type": "li",
+                },
+              ],
+              "type": "ul",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": " Fly Distance: ",
+              },
+              "ref": null,
+              "rendered": " Fly Distance: ",
+              "type": "p",
+            },
+            "3345 Km",
+          ],
+          "type": "span",
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "hr",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Fly for 
+            40
+             EUR
+          </h1>,
+          <hr />,
+          <strong>
+             Flight Description: 
+          </strong>,
+          <p>
+            From: 
+            Barcelona
+          </p>,
+          <p>
+            To: 
+            Brno
+          </p>,
+          <p>
+            Flight duration: 
+            3h
+             
+          </p>,
+          <p>
+            Flight ID: 
+            4322jnj2|dwefwer423
+             
+          </p>,
+          <hr />,
+          <div>
+            <span>
+              <strong>
+                Flight Details: 
+              </strong>
+              <p>
+                 Bags price:
+              </p>
+              <ul>
+                <li>
+                  1 Bag → 45 EUR
+                   
+                </li>
+                <li>
+                  2 Bags → 68 EUR
+                   
+                </li>
+                <li>
+                  3 Bags → undefined EUR
+                   
+                </li>
+              </ul>
+              <p>
+                 Fly Distance: 
+              </p>
+              3345 Km
+            </span>
+          </div>,
+          <hr />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Fly for ",
+              40,
+              " EUR",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Fly for ",
+            40,
+            " EUR",
+          ],
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": " Flight Description: ",
+          },
+          "ref": null,
+          "rendered": " Flight Description: ",
+          "type": "strong",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "From: ",
+              "Barcelona",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "From: ",
+            "Barcelona",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "To: ",
+              "Brno",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "To: ",
+            "Brno",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Flight duration: ",
+              "3h",
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Flight duration: ",
+            "3h",
+            " ",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Flight ID: ",
+              "4322jnj2|dwefwer423",
+              " ",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Flight ID: ",
+            "4322jnj2|dwefwer423",
+            " ",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <span>
+              <strong>
+                Flight Details: 
+              </strong>
+              <p>
+                 Bags price:
+              </p>
+              <ul>
+                <li>
+                  1 Bag → 45 EUR
+                   
+                </li>
+                <li>
+                  2 Bags → 68 EUR
+                   
+                </li>
+                <li>
+                  3 Bags → undefined EUR
+                   
+                </li>
+              </ul>
+              <p>
+                 Fly Distance: 
+              </p>
+              3345 Km
+            </span>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <strong>
+                  Flight Details: 
+                </strong>,
+                <p>
+                   Bags price:
+                </p>,
+                <ul>
+                  <li>
+                    1 Bag → 45 EUR
+                     
+                  </li>
+                  <li>
+                    2 Bags → 68 EUR
+                     
+                  </li>
+                  <li>
+                    3 Bags → undefined EUR
+                     
+                  </li>
+                </ul>,
+                <p>
+                   Fly Distance: 
+                </p>,
+                "3345 Km",
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Flight Details: ",
+                },
+                "ref": null,
+                "rendered": "Flight Details: ",
+                "type": "strong",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Bags price:",
+                },
+                "ref": null,
+                "rendered": " Bags price:",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <li>
+                      1 Bag → 45 EUR
+                       
+                    </li>,
+                    <li>
+                      2 Bags → 68 EUR
+                       
+                    </li>,
+                    <li>
+                      3 Bags → undefined EUR
+                       
+                    </li>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": "0",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "1 Bag → 45 EUR",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "1 Bag → 45 EUR",
+                      " ",
+                    ],
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "1",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "2 Bags → 68 EUR",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "2 Bags → 68 EUR",
+                      " ",
+                    ],
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": "2",
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        "3 Bags → undefined EUR",
+                        " ",
+                      ],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      "3 Bags → undefined EUR",
+                      " ",
+                    ],
+                    "type": "li",
+                  },
+                ],
+                "type": "ul",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": " Fly Distance: ",
+                },
+                "ref": null,
+                "rendered": " Fly Distance: ",
+                "type": "p",
+              },
+              "3345 Km",
+            ],
+            "type": "span",
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "hr",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
