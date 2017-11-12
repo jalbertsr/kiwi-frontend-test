@@ -6,10 +6,11 @@ import enUS from 'antd/lib/locale-provider/en_US'
 import 'babel-polyfill'
 import App from './components/App/App.jsx'
 
+
 ReactDOM.render(
-  <LocaleProvider locale={enUS}>
-    <BrowserRouter>
+  <BrowserRouter>
+    <LocaleProvider locale={enUS}>
       <App />
-    </BrowserRouter>
-  </LocaleProvider>,
+    </LocaleProvider>
+  </BrowserRouter>,
   document.getElementById('root'))

@@ -1,30 +1,14 @@
 import Main from './Main'
-import chai, { expect } from 'chai'
-import spies from 'chai-spies'
+import React from 'react'
+import Adapter from 'enzyme-adapter-react-16'
+import { shallow, configure } from 'enzyme'
 
-chai.use(spies)
+configure({ adapter: new Adapter() })
 
+/* eslint-disable no-unused-vars */
 describe('Main', () => {
-  let newMain
-  beforeEach(() => {
-    newMain = new Main()
-  })
-  afterEach(() => {
-    newMain = null
-  })
-
-  test('it should exist', () => {
-    expect(newMain).to.exist
-  })
-  test('it should be defined', () => {
-    expect(newMain).to.not.be.undefined
-  })
-  describe('Main methods', () => {
-    test('getResults has been called', () => {
-      const main = new Main()
-      const spy = chai.spy.on(main, 'getResults')
-      main.getResults()
-      expect(spy).to.have.been.called()
-    })
+  test('renders correctly', () => {
+    const component = shallow(<Main />)
+    expect(component).toMatchSnapshot()
   })
 })

@@ -6,8 +6,7 @@ import { shallow, configure } from 'enzyme'
 configure({ adapter: new Adapter() })
 
 /* eslint-disable no-unused-vars */
-
-test('FlightDescription renders correctly', () => {
+describe('FlightDescription', () => {
   const props = {
     price: 40,
     cityFrom: 'Barcelona',
@@ -17,6 +16,12 @@ test('FlightDescription renders correctly', () => {
     bags_price: [23, 45, 68],
     distance: 3345
   }
-  const component = shallow(<Searchform {...props} />)
-  expect(component).toMatchSnapshot()
+  it('renders correctly', () => {
+    const component = shallow(<Searchform {...props} />)
+    expect(component).toMatchSnapshot()
+  })
+  it('renders a "Fly for 40 EUR"', () => {
+    const component = shallow(<Searchform {...props} />)
+    expect(component.html().includes('<h1>Fly for 40 EUR</h1>')).toBe(true)
+  })
 })

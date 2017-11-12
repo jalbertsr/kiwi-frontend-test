@@ -26,7 +26,7 @@ describe('FlightMap', () => {
   test('it should be defined', () => {
     expect(newFlightMap).to.not.be.undefined
   })
-  
+
   describe('FlightMap methods', () => {
     test('calculateCenter returns an object', () => {
       const flightMap = new FlightMap(props)

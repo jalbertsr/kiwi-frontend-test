@@ -1,9 +1,13 @@
 import ShowFlight from './ShowFlight'
-import chai, { expect, assert } from 'chai'
+import React from 'react'
+import Adapter from 'enzyme-adapter-react-16'
+import { shallow, configure } from 'enzyme'
+
+configure({ adapter: new Adapter() })
+
+/* eslint-disable no-unused-vars */
 
 describe('ShowFlight', () => {
-  let newShowFlight
-
   const props = {
     match: {
       params: {
@@ -11,21 +15,8 @@ describe('ShowFlight', () => {
       }
     }
   }
-
-  beforeEach(() => {
-    newShowFlight = new ShowFlight(props)
-  })
-  afterEach(() => {
-    newShowFlight = null
-  })
-
-  test('it should exist', () => {
-    expect(newShowFlight).to.exist
-  })
-  test('it should be defined', () => {
-    expect(newShowFlight).to.not.be.undefined
-  })
-  test('newShowFlight is an instance of ShowFlight', () => {
-    assert.instanceOf(newShowFlight, ShowFlight)
+  test('renders correctly', () => {
+    const component = shallow(<ShowFlight {...props} />)
+    expect(component).toMatchSnapshot()
   })
 })

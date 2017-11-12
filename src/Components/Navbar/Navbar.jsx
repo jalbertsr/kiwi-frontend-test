@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link, Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 
 const Navbar = () =>
   <Menu mode='horizontal'>
     <Menu.Item >
-      <Router>
-        <Link to='/'>
-          <Icon type='home' /> Home
-        </Link>
-      </Router>
+      <Link to='/'>
+        <Icon type='home' /> Home
+      </Link>
     </Menu.Item>
   </Menu>
 

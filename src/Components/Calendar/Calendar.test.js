@@ -1,24 +1,15 @@
 import Calendar from './RangePicker'
-import chai, { expect } from 'chai'
-import spies from 'chai-spies'
+import React from 'react'
+import Adapter from 'enzyme-adapter-react-16'
+import { shallow, configure } from 'enzyme'
 
-chai.use(spies)
+configure({ adapter: new Adapter() })
 
-describe('Calendar', () => {
-  let newCalendar
-  const props = 
+/* eslint-disable no-unused-vars */
 
-  beforeEach(() => {
-    newCalendar = new Calendar(props)
-  })
-  afterEach(() => {
-    newCalendar = null
-  })
+const jestMock = jest.fn()
 
-  test('it should exist', () => {
-    expect(newCalendar).to.exist
-  })
-  test('it should be defined', () => {
-    expect(newCalendar).to.not.be.undefined
-  })
+test('Calendar renders correctly', () => {
+  const component = shallow(<Calendar getDates={jestMock} />)
+  expect(component).toMatchSnapshot()
 })
