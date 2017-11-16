@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar renders correctly 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SearchBar
+    onChange={[Function]}
+    placeholder="Brno"
+    use="from"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "choiceTransitionName": "zoom",
+      "className": "input",
+      "dataSource": Array [],
+      "filterOption": false,
+      "onChange": [Function],
+      "optionLabelProp": "children",
+      "placeholder": "Brno",
+      "prefixCls": "ant-select",
+      "showSearch": false,
+      "transitionName": "slide-up",
+    },
+    "ref": null,
+    "rendered": null,
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "choiceTransitionName": "zoom",
+        "className": "input",
+        "dataSource": Array [],
+        "filterOption": false,
+        "onChange": [Function],
+        "optionLabelProp": "children",
+        "placeholder": "Brno",
+        "prefixCls": "ant-select",
+        "showSearch": false,
+        "transitionName": "slide-up",
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

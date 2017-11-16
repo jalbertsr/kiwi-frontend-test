@@ -1,28 +1,19 @@
 import Searchform from './SearchForm'
-import chai, { expect } from 'chai'
-import spies from 'chai-spies'
+import React from 'react'
+import Adapter from 'enzyme-adapter-react-16'
+import { shallow, configure } from 'enzyme'
 
-chai.use(spies)
+configure({ adapter: new Adapter() })
 
-describe('Searchform', () => {
-  let newSearchform
-  const jestMock = jest.fn()
-  const props = {
-    handleSubmit: jestMock,
-    handleChange: jestMock,
-    handleDates: jestMock
-  }
-  beforeEach(() => {
-    newSearchform = new Searchform(props)
-  })
-  afterEach(() => {
-    newSearchform = null
-  })
+/* eslint-disable no-unused-vars */
 
-  test('it should exist', () => {
-    expect(newSearchform).to.exist
-  })
-  test('it should be defined', () => {
-    expect(newSearchform).to.not.be.undefined
-  })
+const jestMock = jest.fn()
+const props = {
+  handleSubmit: jestMock,
+  handleChange: jestMock,
+  handleDates: jestMock
+}
+test('Searchform renders correctly', () => {
+  const component = shallow(<Searchform {...props} />)
+  expect(component).toMatchSnapshot()
 })

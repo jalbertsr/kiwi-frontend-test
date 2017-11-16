@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col } from 'antd'
 import PropTypes from 'prop-types'
-import uuidv4 from 'uuid/v4'
+import FlightDescription from '../FlightDescription/FlightDescription'
 
 import Service from '../../Services/flightService'
 import FlightMap from '../Map/Map'
@@ -16,18 +16,24 @@ export default class ShowFlight extends Component {
   }
 
   componentDidMount () {
+    this._componentDidMount()
+  }
+
+  async _componentDidMount () {
     if (this.props.match.params.query) {
       const [flyFrom, flyTo, departure, returning, index] =
-      this.props.match.params.query.split('&').map(query => query.split('=')[1])
+        this.props.match.params.query.split('&').map(query => query.split('=')[1])
       const parsedDeparture = departure.replace('-', '/').replace('-', '/')
       const parsedReturn = returning.replace('-', '/').replace('-', '/')
 
-      Service.getFlights(flyFrom, flyTo, parsedDeparture, parsedReturn)
-        .then(data => {
-          this.setState({
-            result: data.data[index]
-          })
+      const data = await Service.getFlights(flyFrom, flyTo, parsedDeparture, parsedReturn)
+      try {
+        this.setState({
+          result: data.data[index]
         })
+      } catch (e) {
+        throw new Error(e)
+      }
     }
   }
 
@@ -37,39 +43,19 @@ export default class ShowFlight extends Component {
       <div className={styles.flightContainer}>
         <Row>
           <Col xs={18} md={8} offset={1}>
-            { result.route && <FlightMap
-              latFrom={result.route['0'].latFrom}
-              latTo={result.route['0'].latTo}
-              lngFrom={result.route['0'].lngFrom}
-              lngTo={result.route['0'].lngTo}
-            />
+            { result.route && 
+              <FlightMap
+                latFrom={result.route['0'].latFrom}
+                latTo={result.route['0'].latTo}
+                lngFrom={result.route['0'].lngFrom}
+                lngTo={result.route['0'].lngTo}
+              />
             }
           </Col>
           <Col xs={18} md={12} offset={1}>
-            { result.route &&
-              <div>
-                <h1>Fly for {result.price} EUR</h1>
-                <hr />
-                <strong> Flight Description: </strong>
-                <p>From: {result.cityFrom}</p>
-                <p>To: {result.cityTo}</p>
-                <p>Flight duration: {result.fly_duration} </p>
-                <p>Flight ID: {result.id} </p>
-                <hr />
-                <div >
-                  <span>
-                    <strong>Flight Details: </strong>
-                    <p> Bags price:</p>
-                    <ul>
-                      {Object.keys(result.bags_price).map((bag, i) =>
-                        <li key={uuidv4()}>{`${i + 1} Bag${(i + 1) <= 1 ? '' : 's'} → ${result.bags_price[i + 1]} EUR`} </li>) }
-                    </ul>
-                    <p> Fly Distance: </p>
-                    {`${result.distance} Km`}
-                  </span>
-                </div>
-                <hr />
-              </div>
+            {
+              result.route &&
+              <FlightDescription {...result} />
             }
           </Col>
         </Row>

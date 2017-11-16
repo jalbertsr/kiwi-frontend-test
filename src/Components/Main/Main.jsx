@@ -59,16 +59,18 @@ export default class Main extends Component {
       this.state.departure, this.state.returning, this.state.slice)
   }
 
-  getResults = (_from, to, departure, returning, slice) => {
+  getResults = async (_from, to, departure, returning, slice) => {
     this.setState({ loading: true })
-    Service.getFlights(_from, to, departure, returning)
-      .then(info => {
-        this.setState({
-          loading: false,
-          resultsLength: info.data.length,
-          results: info.data.slice(slice.init, slice.final)
-        })
+    const info = await Service.getFlights(_from, to, departure, returning)
+    try {
+      this.setState({
+        loading: false,
+        resultsLength: info.data.length,
+        results: info.data.slice(slice.init, slice.final)
       })
+    } catch (e) {
+      throw new Error(e)
+    }
   }
 
   componentDidMount () {

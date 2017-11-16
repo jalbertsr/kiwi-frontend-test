@@ -5,6 +5,13 @@ class FlightMap extends Component {
   constructor (props) {
     super(props)
   }
+  componentDidMount() {
+    this.renderFlight()
+  }
+
+  componentWillUnmount () {
+    clearInterval(this.intervalId)
+  }
 
   calculateCenter = () => {
     const lat = (this.props.latFrom + this.props.latTo) / 2
@@ -14,16 +21,16 @@ class FlightMap extends Component {
 
   animatePlane = (plane) => {
     let count = 0
-    window.setInterval(() => {
+    this.intervalId = window.setInterval(() => {
       count = (count + 1) % 200
       const icons = plane.get('icons')
       icons[0].offset = (count / 2) + '%'
       plane.set('icons', icons)
     }, 20)
+    this.setState({ intervalId })
   }
 
   renderFlight = () => {
-    const google = window.google
     const flightPlanCoordinates = [
       { lat: this.props.latFrom, lng: this.props.lngFrom },
       { lat: this.props.latTo, lng: this.props.lngTo }
@@ -63,10 +70,6 @@ class FlightMap extends Component {
     flightPath.setMap(map)
     planePath.setMap(map)
     this.animatePlane(planePath)
-  }
-
-  componentDidMount() {
-    this.renderFlight()
   }
 
   render () {

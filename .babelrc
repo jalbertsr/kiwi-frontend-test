@@ -1,7 +1,8 @@
 {
   "presets": [
     "latest", 
-    "react"
+    "react",
+    "flow"
   ],
   "plugins": [
     ["transform-class-properties", { "spec": true }]

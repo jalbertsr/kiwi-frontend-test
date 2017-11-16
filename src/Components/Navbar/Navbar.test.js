@@ -1,23 +1,15 @@
-import Navbar from './Navbar'
-import chai, { expect } from 'chai'
-import spies from 'chai-spies'
+import NavBar from './NavBar'
+import React from 'react'
+import Adapter from 'enzyme-adapter-react-16'
+import { shallow, configure } from 'enzyme'
 
-chai.use(spies)
+configure({ adapter: new Adapter() })
 
-describe('Navbar', () => {
-  let newNavbar
+/* eslint-disable no-unused-vars */
 
-  beforeEach(() => {
-    newNavbar = new Navbar()
-  })
-  afterEach(() => {
-    newNavbar = null
-  })
-
-  test('it should exist', () => {
-    expect(newNavbar).to.exist
-  })
-  test('it should be defined', () => {
-    expect(newNavbar).to.not.be.undefined
+describe('NavBar', () => {
+  test('NavBar renders correctly', () => {
+    const component = shallow(<NavBar />)
+    expect(component).toMatchSnapshot()
   })
 })
