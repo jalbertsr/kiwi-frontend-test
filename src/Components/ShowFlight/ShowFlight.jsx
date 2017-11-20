@@ -43,7 +43,7 @@ export default class ShowFlight extends Component {
       <div className={styles.flightContainer}>
         <Row>
           <Col xs={18} md={8} offset={1}>
-            { result.route && 
+            { result.route &&
               <FlightMap
                 latFrom={result.route['0'].latFrom}
                 latTo={result.route['0'].latTo}
