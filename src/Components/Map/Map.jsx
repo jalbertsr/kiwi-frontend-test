@@ -27,7 +27,6 @@ class FlightMap extends Component {
       icons[0].offset = (count / 2) + '%'
       plane.set('icons', icons)
     }, 20)
-    this.setState({ intervalId })
   }
 
   renderFlight = () => {
